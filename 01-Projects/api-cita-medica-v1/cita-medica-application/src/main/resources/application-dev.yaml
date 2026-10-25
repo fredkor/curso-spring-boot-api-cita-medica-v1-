@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    mx.com.fredkor.apps.citamedica: DEBUG
+    org.hibernate.SQL: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,loggers
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
