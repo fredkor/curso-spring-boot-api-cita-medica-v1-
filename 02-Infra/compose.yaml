@@ -1,0 +1,24 @@
+services:
+  pg-postgres:
+    image: docker.io/bitnami/postgresql:latest
+    container_name: citamedica-db
+    restart: unless-stopped
+    ports:
+      - "5460:5432"
+    environment:
+      POSTGRESQL_USERNAME: citamedica
+      POSTGRESQL_DATABASE: citamedica
+      POSTGRESQL_PASSWORD: "citamedica123"
+      TZ: America/Lima
+      PGTZ: America/Lima
+    volumes:
+      - pg-votes-data:/bitnami/postgresql:Z
+    networks:
+      - pg-postgres-net
+
+volumes:
+  pg-votes-data:
+
+networks:
+  pg-postgres-net:
+    driver: bridge
